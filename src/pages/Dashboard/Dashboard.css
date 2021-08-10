@@ -1,0 +1,35 @@
+.dashboard {
+    position: absolute;
+    top: 125px;
+    left: 150px;
+}
+
+.dashboard__contain{
+    display: flex;    
+}
+
+.dashboard__card-information {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+
+.dashboard__mini-graph {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 40px;
+}
+
+.dashboard__title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+}
+
+.dashboard__user-name {
+    color:  red;
+}

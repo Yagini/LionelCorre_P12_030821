@@ -1,0 +1,13 @@
+.scoring-charts {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  height: 263px;
+  width: 258px;
+}
+
+.scoring-charts__title {
+    color: #20253A;
+    font-size: 0.75rem;
+    margin-left: 30px;
+    margin-top: 20px;
+}

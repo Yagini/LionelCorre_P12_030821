@@ -1,0 +1,22 @@
+.vertical-nav {
+    display: flex;
+    flex-direction: column;
+    width: 117px;
+    background-color: #000;
+    align-items: center;
+    padding-top: 90px;
+}
+
+.vertical-nav__icon {
+    margin-bottom: 20px;
+}
+
+.vertical-nav__copyright {
+    color: #fff;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+    font-size: 0.75rem;
+    margin-top: 65px;
+    margin-bottom: 20px;
+    transform: rotate(180deg);
+}

@@ -1,0 +1,29 @@
+.infoCard__container {
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 258px;
+    height: 124px;
+    margin-left: 20px;    
+}
+
+
+.infoCard__img {
+    height: 60px;
+    margin-right: 20px;
+    width: 60px;
+}
+
+.infoCard__text {
+    color: #74798C;
+    font-size: 0.875rem;
+}
+
+.infoCard__title {
+    color: #282D30;
+    font-size: 1.25rem;
+    margin-bottom: 5px;
+}

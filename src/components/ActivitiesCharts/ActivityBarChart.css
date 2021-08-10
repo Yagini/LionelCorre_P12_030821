@@ -1,0 +1,56 @@
+.activity-bar-chart {
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  height: 320px;
+  margin-bottom: 30px;
+  position: relative;
+  width: 835px;
+}
+
+.activity-bar-chart__infos {
+  align-items: center;
+  display: flex;
+  padding: 20px 20px 0 20px;
+}
+
+.activity-bar-chart__legend {
+  display: flex;
+  color: #74798C;
+}
+
+.activity-bar-chart__title {
+  flex: 1;
+  color: #20253A;
+}
+
+.activity-bar-chart__legend,
+.activity-bar-chart__title {
+  font-size: 0.9375rem;
+  font-weight: 500;
+}
+
+.activity-bar-chart__dot {
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.5rem;
+  margin-right: 0.5rem;
+  width: 0.5rem;
+}
+
+.activity-bar-chart__weight,
+.activity-bar-chart__calories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activity-bar-chart__weight {
+  margin-right: 30px;
+}
+.activity-bar-chart__dot--gray {
+  background-color: #282d30;
+}
+
+.activity-bar-chart__dot--red {
+  background-color: #e60000;
+}
