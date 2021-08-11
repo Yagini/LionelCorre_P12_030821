@@ -1,38 +1,12 @@
 import React from "react";
 import "./AverageSessionsCharts.css";
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import { USER_AVERAGE_SESSIONS } from "../../datas/data";
 
-function AverageSessionsCharts() {
-  const sessionsData = [
-    {
-      day: 1,
-      sessionLength: 30,
-    },
-    {
-      day: 2,
-      sessionLength: 23,
-    },
-    {
-      day: 3,
-      sessionLength: 45,
-    },
-    {
-      day: 4,
-      sessionLength: 50,
-    },
-    {
-      day: 5,
-      sessionLength: 0,
-    },
-    {
-      day: 6,
-      sessionLength: 0,
-    },
-    {
-      day: 7,
-      sessionLength: 60,
-    },
-  ];
+function AverageSessionsCharts({ userId }) {
+  const userAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId === userId);
+  const { sessions } = userAverageSessions;
+
   return (
     <div className="average-sessions-charts">
       <h2 className="average-sessions-charts__title">
@@ -40,7 +14,7 @@ function AverageSessionsCharts() {
         des sessions
       </h2>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={sessionsData} margin={{ top: 5, right: 10, left: 10, bottom: 10 }}>
+        <LineChart data={sessions} margin={{ top: 5, right: 10, left: 10, bottom: 10 }}>
           <XAxis
             dataKey="day"
             stroke="rgba(255, 255, 255, 0.5)"

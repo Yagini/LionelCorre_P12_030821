@@ -14,7 +14,7 @@ function App() {
         <Navigation />
         <VerticalNavigation />
         <Switch>          
-          <Route path="/user/:id" render={(props) => <Dashboard {...props} />} />
+          <Route exact path="/user/:id" render={(props) => <Dashboard {...props} />} />
         </Switch>
       </div>
     </BrowserRouter>

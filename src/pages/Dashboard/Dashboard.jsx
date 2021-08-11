@@ -28,7 +28,7 @@ function Dashboard(props) {
       <h2 className="dashboard__subtitle"> Félicitation! vous avez explosé vos objectifs hier 👏</h2>
       <main className="dashboard__contain">
         <section className="dashboard__all-graph">
-          <ActivityBarChart />
+          <ActivityBarChart userId={parseId} />
           <div className="dashboard__mini-graph">
             <AverageSessionsCharts userId={parseId} />
             <PerformancesCharts userId={parseId} />

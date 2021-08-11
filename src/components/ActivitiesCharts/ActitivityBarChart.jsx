@@ -1,45 +1,11 @@
 import React from "react";
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer } from "recharts";
+import { USER_ACTIVITY } from "../../datas/data";
 import "./ActivityBarChart.css";
 
-function ActivityBarChart() {
-  const USER_ACTIVITY = [
-    {
-      day: "2020-07-01",
-      kilogram: 80,
-      calories: 240,
-    },
-    {
-      day: "2020-07-02",
-      kilogram: 80,
-      calories: 220,
-    },
-    {
-      day: "2020-07-03",
-      kilogram: 81,
-      calories: 280,
-    },
-    {
-      day: "2020-07-04",
-      kilogram: 81,
-      calories: 290,
-    },
-    {
-      day: "2020-07-05",
-      kilogram: 80,
-      calories: 160,
-    },
-    {
-      day: "2020-07-06",
-      kilogram: 78,
-      calories: 162,
-    },
-    {
-      day: "2020-07-07",
-      kilogram: 76,
-      calories: 390,
-    },
-  ];
+function ActivityBarChart({ userId }) {
+  const userActivity = USER_ACTIVITY.find((user) => user.userId === userId);
+  const { sessions } = userActivity;
 
   return (
     <div className="activity-bar-chart">
@@ -62,7 +28,7 @@ function ActivityBarChart() {
           height={270}
           barGap={8}
           barCategoryGap={30}
-          data={USER_ACTIVITY}
+          data={sessions}
           margin={{ top: 50, right: 30, left: 40, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
