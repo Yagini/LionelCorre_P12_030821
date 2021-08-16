@@ -1,3 +1,56 @@
+# Project 12 - OpenClassRooms - August 2021
+
+Project Sportsee, build an analytical dashboard with React and nodeJs server
+
+# 1. Prerequisites
+
+* [React](https://reactjs.org/) version 17.0.2
+* [nodeJS](https://nodejs.org/en/) version 12.18
+* [npm](https://www.npmjs.com/)
+
+# 2. Dependencies
+
+* [Recharts](https://recharts.org/en-US/) version 2.0.10
+* [react-router-dom](https://reactrouter.com/web/guides/quick-start) version 5.2.0
+* [Prop-types](https://www.npmjs.com/package/prop-types) version 15.7.2
+
+# 3. Ide
+
+Recommended IDE :
+
+* [Visual Studio Code](https://code.visualstudio.com/) 
+
+# 4. Install and run the project
+
+## Install and launch back-end
+
+1. Clone the repoitory of back-end on your computer:
+
+    https://github.com/Yagini/P9-front-end-dashboard
+
+2. In the local repository, install all dependencies:
+    
+    `npm install`
+
+3. Launch back-end (port 3000 by default):
+
+    `npm start`
+
+## Install and launch the front-end
+
+1. Clone the repository of front-end:
+
+   https://github.com/Yagini/LionelCorre_P12_030821
+
+2. In the local repository, install dependencies:
+
+    `npm install`
+
+3. launch front-end (port 3001 if the back-end is loaded) :
+
+    `npm start`
+
+# 5. React
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

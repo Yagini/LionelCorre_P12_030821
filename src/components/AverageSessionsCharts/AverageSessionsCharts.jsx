@@ -1,42 +1,90 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 import "./AverageSessionsCharts.css";
 
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 
-import { USER_AVERAGE_SESSIONS } from "../../datas/data";
+//import { USER_AVERAGE_SESSIONS } from "../../datas/data";
+import { getUserAverageSessionsData } from "../../services/userService";
 
 function AverageSessionsCharts({ userId }) {
-  const userAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId === userId);
-  const { sessions } = userAverageSessions;
+  //const userAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId === userId);
+  //const { sessions } = userAverageSessions;
+
+  const [averageSessions, setAverageSessions] = useState(null);
+  const [isError, setIsError] = useState(false);
+  useEffect(() => {
+    if (userId !== undefined) {
+      getUserAverageSessionsData(userId).then((userAverageSessions) => {
+        setIsError(!userAverageSessions);
+        setAverageSessions(userAverageSessions);
+      });
+    }
+  }, [userId]);
+
+  const changeValueOfXAxis = ({ day }) => {
+    let value = "";
+    switch (day) {
+      case 1:
+        value = "L";
+        break;
+      case 2:
+        value = "M";
+        break;
+      case 3:
+        value = "M";
+        break;
+      case 4:
+        value = "J";
+        break;
+      case 5:
+        value = "V";
+        break;
+      case 6:
+        value = "S";
+        break;
+      case 7:
+        value = "D";
+        break;
+      default:
+        value = "";
+    }
+    return value;
+  };
 
   return (
     <div className="average-sessions-charts">
-      <h2 className="average-sessions-charts__title">
-        Durée moyenne <br />
-        des sessions
-      </h2>
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={sessions} margin={{ top: 5, right: 10, left: 10, bottom: 10 }}>
-          <XAxis
-            dataKey="day"
-            stroke="rgba(255, 255, 255, 0.5)"
-            axisLine={false}
-            tickLine={false}
-            tick={{ fontSize: 12 }}
-          />
-          <YAxis dataKey="sessionLength" hide={true} domain={["dataMin -10", "dataMax +60"]} />
-          <Tooltip />
-          <Line
-            dataKey="sessionLength"
-            type="monotone"
-            stroke="#fff"
-            dot={false}
-            activeDot={{ stroke: "rgba(255, 255, 255, 0.6", strokeWidth: 10 }}
-          />
-        </LineChart>
-      </ResponsiveContainer>
+      {averageSessions ? (
+        <>
+          <h2 className="average-sessions-charts__title">
+            Durée moyenne <br />
+            des sessions
+          </h2>
+          <ResponsiveContainer width="100%" height="100%">
+            <LineChart data={averageSessions.sessions} margin={{ top: 5, right: 10, left: 10, bottom: 10 }}>
+              <XAxis
+                dataKey={changeValueOfXAxis}
+                stroke="rgba(255, 255, 255, 0.5)"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fontSize: 12 }}
+              />
+              <YAxis dataKey={averageSessions.sessionLength} hide={true} domain={["dataMin -10", "dataMax +60"]} />
+              <Tooltip />
+              <Line
+                dataKey="sessionLength"
+                type="monotone"
+                stroke="#fff"
+                dot={false}
+                activeDot={{ stroke: "rgba(255, 255, 255, 0.6", strokeWidth: 10 }}
+              />
+            </LineChart>
+          </ResponsiveContainer>
+        </>
+      ) : isError ? (
+        <span>Erreur lors de la récupération des data</span>
+      ) : null}
     </div>
   );
 }

@@ -18,11 +18,14 @@ import { getUserMainData } from "../../services/userService";
 function Dashboard(props) {
   const getId = props.match.params.id;
   const parseId = parseInt(getId, 10);
+
   const [currentUser, setCurrentUser] = useState(null);
+  const [isError, setIsError] = useState(false);
   useEffect(() => {
     if (parseId !== undefined) {
       getUserMainData(parseId).then((userInformation) => {
         console.log(userInformation);
+        setIsError(!userInformation);
         setCurrentUser(userInformation);
       });
     }
@@ -68,6 +71,8 @@ function Dashboard(props) {
             </aside>
           </main>
         </>
+      ) : isError ? (
+        <span className="dashboard__error">Pas d'utilisateur</span>
       ) : null}
     </div>
   );
