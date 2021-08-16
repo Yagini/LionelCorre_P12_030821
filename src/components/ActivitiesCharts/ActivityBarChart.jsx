@@ -1,7 +1,11 @@
 import React from "react";
-import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer } from "recharts";
-import { USER_ACTIVITY } from "../../datas/data";
+import PropTypes from "prop-types";
+
 import "./ActivityBarChart.css";
+
+import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer } from "recharts";
+
+import { USER_ACTIVITY } from "../../datas/data";
 
 function ActivityBarChart({ userId }) {
   const userActivity = USER_ACTIVITY.find((user) => user.userId === userId);
@@ -46,7 +50,7 @@ function ActivityBarChart({ userId }) {
             dx={30}
           />
           <YAxis yAxisId="cal" dataKey="calories" hide={true} domain={[0, "dataMax +50"]} />
-          <Tooltip />
+          <Tooltip contentStyle={{ backgroundColor: "#E60000", color: "#fff" }} />
           <Bar yAxisId="kg" dataKey="kilogram" fill="#282D30" barSize={7} radius={[50, 50, 0, 0]} />
           <Bar yAxisId="cal" dataKey="calories" fill="#E60000" barSize={7} radius={[50, 50, 0, 0]} />
         </BarChart>
@@ -54,5 +58,9 @@ function ActivityBarChart({ userId }) {
     </div>
   );
 }
+
+ActivityBarChart.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
 
 export default ActivityBarChart;

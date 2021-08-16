@@ -1,35 +1,50 @@
 .dashboard {
-    position: absolute;
-    top: 125px;
-    left: 150px;
+  position: absolute;
+  top: 125px;
+  left: 150px;
 }
 
-.dashboard__contain{
-    display: flex;    
+.dashboard__contain {
+  display: flex;
 }
 
 .dashboard__card-information {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
-
 .dashboard__mini-graph {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .dashboard__subtitle {
-    font-size: 1.125rem;
-    margin-bottom: 40px;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
 }
 
 .dashboard__title {
-    font-size: 3rem;
-    margin-bottom: 40px;
+  font-size: 2rem;
+  margin-bottom: 28px;
 }
 
 .dashboard__user-name {
-    color:  red;
+  color: red;
+}
+
+@media screen and (min-width: 1240px) {
+  .dashboard {
+    top: 160px;
+    left: 225px;
+  }
+  .dashboard__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 70px;
+  }
+
+  .dashboard__title {
+    font-size: 3rem;
+    margin-bottom: 40px;
+  }
 }

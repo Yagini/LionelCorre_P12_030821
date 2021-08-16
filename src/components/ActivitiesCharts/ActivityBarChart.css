@@ -1,10 +1,10 @@
 .activity-bar-chart {
   border-radius: 5px;
   background-color: #fbfbfb;
-  height: 320px;
+  height: 225px;
   margin-bottom: 30px;
   position: relative;
-  width: 835px;
+  width: 595px;
 }
 
 .activity-bar-chart__infos {
@@ -15,12 +15,12 @@
 
 .activity-bar-chart__legend {
   display: flex;
-  color: #74798C;
+  color: #74798c;
 }
 
 .activity-bar-chart__title {
   flex: 1;
-  color: #20253A;
+  color: #20253a;
 }
 
 .activity-bar-chart__legend,
@@ -53,4 +53,11 @@
 
 .activity-bar-chart__dot--red {
   background-color: #e60000;
+}
+
+@media screen and (min-width: 1240px) {
+  .activity-bar-chart {
+    height: 320px;
+    width: 835px;
+  }
 }

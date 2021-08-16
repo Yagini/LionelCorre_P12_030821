@@ -1,17 +1,30 @@
 .average-sessions-charts {
     background-color: #ff0000;
     border-radius: 5px;
-    height: 263px;
+    height: 188px;
     position: relative;
-    width: 258px;
+    width: 185px;
 }
 
 .average-sessions-charts__title {
     color: #fff;
-    font-size: 0.9375rem;
+    font-size: 0.7rem;
     font-weight: 500;
-    left: 1.875rem;
+    left: 24px;
     opacity: 0.5;
     position: absolute;
-    top: 1.875rem;
+    top: 20px;
+}
+
+@media screen and (min-width: 1240px) {
+    .average-sessions-charts {        
+        height: 263px;        
+        width: 258px;
+    }
+
+    .average-sessions-charts__title {        
+        font-size: 0.9375rem;        
+        left: 34px;      
+        top: 29px;
+    }    
 }

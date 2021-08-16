@@ -1,6 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import "./AverageSessionsCharts.css";
+
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+
 import { USER_AVERAGE_SESSIONS } from "../../datas/data";
 
 function AverageSessionsCharts({ userId }) {
@@ -36,5 +40,9 @@ function AverageSessionsCharts({ userId }) {
     </div>
   );
 }
+
+AverageSessionsCharts.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
 
 export default AverageSessionsCharts;

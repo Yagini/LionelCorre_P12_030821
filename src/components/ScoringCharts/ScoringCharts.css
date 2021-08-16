@@ -1,13 +1,61 @@
 .scoring-charts {
+  align-items: center;
   background-color: #fbfbfb;
   border-radius: 5px;
-  height: 263px;
-  width: 258px;
+  display: flex;
+  height: 188px;
+  justify-content: center;
+  position: relative;
+  width: 185px;
+}
+
+.scoring-charts__text {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  color: #74798c;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+  height: 140px;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  width: 140px;
+}
+
+.scoring-charts__text--value {
+  color: #20253a;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .scoring-charts__title {
-    color: #20253A;
-    font-size: 0.75rem;
-    margin-left: 30px;
-    margin-top: 20px;
+  color: #20253a;
+  font-size: 0.75rem;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+
+@media screen and (min-width: 1240px) {
+  .scoring-charts {
+    height: 263px;
+    width: 258px;
+  }
+
+  .scoring-charts__text { 
+    font-size: 1rem;    
+  }
+  
+  .scoring-charts__text--value {    
+    font-size: 1.5rem;    
+  }
+  
+  .scoring-charts__title {    
+    font-size: 0.75rem;    
+    left: 20px;
+    top: 20px;
+  }
 }

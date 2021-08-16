@@ -1,11 +1,15 @@
 import React from "react";
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from "recharts";
-import { USER_PERFORMANCE } from "../../datas/data";
+import PropTypes from "prop-types";
+
 import "./PerformancesCharts.css";
+
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from "recharts";
+
+import { USER_PERFORMANCE } from "../../datas/data";
 
 function PerformancesCharts({ userId }) {
   const userPerformance = USER_PERFORMANCE.find((user) => user.userId === userId);
-  const { data } = userPerformance;  
+  const { data } = userPerformance;
 
   return (
     <div className="performances-charts">
@@ -19,5 +23,9 @@ function PerformancesCharts({ userId }) {
     </div>
   );
 }
+
+PerformancesCharts.propTypes = {
+  userId: PropTypes.number.isRequired,
+};
 
 export default PerformancesCharts;

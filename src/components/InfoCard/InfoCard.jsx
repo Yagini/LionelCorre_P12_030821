@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import "./InfoCard.css";
 
@@ -13,5 +14,12 @@ function InfoCard({ src, title, data, type }) {
     </div>
   );
 }
+
+InfoCard.propTypes = {
+  src: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  data: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
 
 export default InfoCard;

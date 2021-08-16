@@ -2,10 +2,15 @@ body {
   margin: auto;
   font-family: "Roboto";
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 1240px;
+  -moz-osx-font-smoothing: grayscale; 
+  
+  
 }
-
+@media screen and (min-width: 1240px) {
+    body {
+      width: 1440px;
+    }
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
