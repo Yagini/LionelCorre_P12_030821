@@ -33,6 +33,12 @@
   color: red;
 }
 
+.dashboard__error {
+  font-size: 2rem;
+  font-family: "roboto";
+  font-weight: 700;
+}
+
 @media screen and (min-width: 1240px) {
   .dashboard {
     top: 160px;

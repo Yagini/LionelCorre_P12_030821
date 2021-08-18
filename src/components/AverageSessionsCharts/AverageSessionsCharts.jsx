@@ -23,6 +23,11 @@ function AverageSessionsCharts({ userId }) {
     }
   }, [userId]);
 
+  /**
+   * Change the value on the xAxis
+   * @param {object} day is the fetched data
+   * @returns {string} value as been display
+   */
   const changeValueOfXAxis = ({ day }) => {
     let value = "";
     switch (day) {
@@ -70,14 +75,14 @@ function AverageSessionsCharts({ userId }) {
                 tickLine={false}
                 tick={{ fontSize: 12 }}
               />
+              <Tooltip content={CustomizedTooltip} />
               <YAxis dataKey={averageSessions.sessionLength} hide={true} domain={["dataMin -10", "dataMax +60"]} />
-              <Tooltip />
               <Line
                 dataKey="sessionLength"
                 type="monotone"
                 stroke="#fff"
                 dot={false}
-                activeDot={{ stroke: "rgba(255, 255, 255, 0.6", strokeWidth: 10 }}
+                activeDot={{ stroke: "rgba(255, 255, 255, 0.3", strokeWidth: 10 }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -91,6 +96,27 @@ function AverageSessionsCharts({ userId }) {
 
 AverageSessionsCharts.propTypes = {
   userId: PropTypes.number.isRequired,
+};
+
+/**
+ * show and display the tooltip
+ * @param {Boolean, array} params
+ * @returns {null}
+ */
+const CustomizedTooltip = ({ active, payload }) => {
+  if (active && payload) {
+    return (
+      <>
+        <p className="average-sessions-charts__tooltip-content">{`${payload[0].value} min`}</p>
+      </>
+    );
+  }
+  return null;
+};
+
+CustomizedTooltip.propTypes = {
+  active: PropTypes.bool.isRequired,
+  payload: PropTypes.array.isRequired,
 };
 
 export default AverageSessionsCharts;

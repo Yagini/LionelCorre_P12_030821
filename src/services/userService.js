@@ -1,10 +1,16 @@
 import axios from "axios";
-import AverageSession from "./userAverageSessions";
 
 const api = axios.create({
   baseURL: "http://localhost:3000/user/",
 });
 
+/**
+ * Get the user main data from the API
+ * @param {object} response the promise async function await response from the API
+ * @param {object} error the catch error if they have an error
+ * @param {number} userId
+ * @returns {void}
+ */
 export function getUserMainData(userId) {
   return api
     .get(`${userId}`)
@@ -18,6 +24,13 @@ export function getUserMainData(userId) {
     });
 }
 
+/**
+ * Get the user activity data from the API
+ * @param {object} response the promise async function await response from the API
+ * @param {object} error the catch error if they have an error
+ * @param {number} userId
+ * @returns {void}
+ */
 export function getUserActivityData(userId) {
   return api
     .get(`${userId}/activity`)
@@ -26,11 +39,18 @@ export function getUserActivityData(userId) {
       return response.data.data;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       return null;
     });
 }
 
+/**
+ * Get the user average sessions data from the API
+ * @param {object} response the promise async function await response from the API
+ * @param {object} error the catch error if they have an error
+ * @param {number} userId
+ * @returns {void}
+ */
 export function getUserAverageSessionsData(userId) {
   return api
     .get(`${userId}/average-sessions`)
@@ -44,6 +64,13 @@ export function getUserAverageSessionsData(userId) {
     });
 }
 
+/**
+ * Get the user performance data from the API
+ * @param {object} response the promise async function await response from the API
+ * @param {object} error the catch error if they have an error
+ * @param {number} userId
+ * @returns {void}
+ */
 export function getUserPerformanceData(userId) {
   return api
     .get(`${userId}/performance`)
@@ -52,7 +79,7 @@ export function getUserPerformanceData(userId) {
       return response.data.data;
     })
     .catch((error) => {
-      console.log(error);
+      console.error(error);
       return null;
     });
 }

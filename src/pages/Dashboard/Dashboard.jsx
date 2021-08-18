@@ -24,7 +24,6 @@ function Dashboard(props) {
   useEffect(() => {
     if (parseId !== undefined) {
       getUserMainData(parseId).then((userInformation) => {
-        console.log(userInformation);
         setIsError(!userInformation);
         setCurrentUser(userInformation);
       });
@@ -72,7 +71,7 @@ function Dashboard(props) {
           </main>
         </>
       ) : isError ? (
-        <span className="dashboard__error">Pas d'utilisateur</span>
+        <span className="dashboard__error">Error : Aucune Correspondance d'utilisateur trouvée</span>
       ) : null}
     </div>
   );
