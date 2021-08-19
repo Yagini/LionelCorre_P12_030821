@@ -7,6 +7,9 @@ import Navigation from "./components/Navigation/Navigation";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import VerticalNavigation from "./components/VerticalNav/VerticalNav";
 
+/**
+ * Main component who manage the route
+ */
 function App() {
   return (
     <BrowserRouter>

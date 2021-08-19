@@ -4,8 +4,15 @@ import PropTypes from "prop-types";
 import "./ActivityBarChart.css";
 
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Bar, ResponsiveContainer } from "recharts";
+import CustomizedTooltip from "../CustomizedTooltipForActivityBarChart/CustomizedTooltipForActivityBarChart";
 
 import { getUserActivityData } from "../../services/userService";
+import { UserActivity } from "../../models/userActivity";
+
+/**
+ * Component BarChart
+ * @param {number} userID the Id of the user
+ */
 
 function ActivityBarChart({ userId }) {
   const [activity, setActivity] = useState(null);
@@ -13,19 +20,19 @@ function ActivityBarChart({ userId }) {
   useEffect(() => {
     if (userId !== undefined) {
       getUserActivityData(userId).then((userActivity) => {
-        setIsError(!userActivity);
-        setActivity(userActivity);
+        setIsError(new UserActivity(!userActivity));
+        setActivity(new UserActivity(userActivity));
       });
     }
   }, [userId]);
 
   /**
-   * display a day for the barCharts
-   * @param {string} day is the fetched data
-   * @returns {string} the part of the string between the end of indexes
+   * Display a day for the barCharts
+   * @param {string} day the fetched data
+   * @returns {number} the part of the string between the end of indexes parse integer
    */
   const substDate = ({ day }) => {
-    return day.substring(9);
+    return parseInt(day.substring(8), 10);
   };
 
   return (
@@ -84,28 +91,6 @@ function ActivityBarChart({ userId }) {
 
 ActivityBarChart.propTypes = {
   userId: PropTypes.number.isRequired,
-};
-
-/**
- * show and display the tooltip
- * @param {Boolean, array} params
- * @returns {null}
- */
-const CustomizedTooltip = ({ active, payload }) => {
-  if (active && payload) {
-    return (
-      <div className="activity-bar-chart__tooltip-container">
-        <p className="activity-bar-chart__tooltip-content">{`${payload[0].value}kg`}</p>
-        <p className="activity-bar-chart__tooltip-content">{`${payload[1].value}Kcal`}</p>
-      </div>
-    );
-  }
-  return null;
-};
-
-CustomizedTooltip.propTypes = {
-  active: PropTypes.bool.isRequired,
-  payload: PropTypes.array.isRequired,
 };
 
 export default ActivityBarChart;

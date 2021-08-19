@@ -16,7 +16,7 @@
 
 .dashboard__mini-graph {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between;  
 }
 
 .dashboard__subtitle {

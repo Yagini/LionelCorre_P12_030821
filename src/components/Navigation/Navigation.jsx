@@ -5,6 +5,9 @@ import "./Navigation.css";
 
 import Logo from "../../assets/logo-sportsee.svg";
 
+/**
+ * Coponent for the main navigation
+ */
 function Navigation() {
   return (
     <nav className="nav">

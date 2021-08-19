@@ -4,21 +4,23 @@ import PropTypes from "prop-types";
 import "./AverageSessionsCharts.css";
 
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import CustomizedTooltip from "../CustomizedTooltipForAverageSessions/CustomizedTooltipForAverageSessions"
 
-//import { USER_AVERAGE_SESSIONS } from "../../datas/data";
 import { getUserAverageSessionsData } from "../../services/userService";
+import { UserAverageSessions } from "../../models/userAverageSessions.js";
 
+/**
+ * Component LineChart
+ * @param {number} userId the Id of the user
+ */
 function AverageSessionsCharts({ userId }) {
-  //const userAverageSessions = USER_AVERAGE_SESSIONS.find((user) => user.userId === userId);
-  //const { sessions } = userAverageSessions;
-
   const [averageSessions, setAverageSessions] = useState(null);
   const [isError, setIsError] = useState(false);
   useEffect(() => {
     if (userId !== undefined) {
       getUserAverageSessionsData(userId).then((userAverageSessions) => {
-        setIsError(!userAverageSessions);
-        setAverageSessions(userAverageSessions);
+        setIsError(new UserAverageSessions(!userAverageSessions));
+        setAverageSessions(new UserAverageSessions(userAverageSessions));
       });
     }
   }, [userId]);
@@ -63,8 +65,9 @@ function AverageSessionsCharts({ userId }) {
       {averageSessions ? (
         <>
           <h2 className="average-sessions-charts__title">
-            Durée moyenne <br />
-            des sessions
+            Durée moyenne des
+            <br />
+            sessions
           </h2>
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={averageSessions.sessions} margin={{ top: 5, right: 10, left: 10, bottom: 10 }}>
@@ -98,25 +101,6 @@ AverageSessionsCharts.propTypes = {
   userId: PropTypes.number.isRequired,
 };
 
-/**
- * show and display the tooltip
- * @param {Boolean, array} params
- * @returns {null}
- */
-const CustomizedTooltip = ({ active, payload }) => {
-  if (active && payload) {
-    return (
-      <>
-        <p className="average-sessions-charts__tooltip-content">{`${payload[0].value} min`}</p>
-      </>
-    );
-  }
-  return null;
-};
 
-CustomizedTooltip.propTypes = {
-  active: PropTypes.bool.isRequired,
-  payload: PropTypes.array.isRequired,
-};
 
 export default AverageSessionsCharts;

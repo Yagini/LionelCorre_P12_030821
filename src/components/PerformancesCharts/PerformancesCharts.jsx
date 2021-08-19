@@ -6,15 +6,20 @@ import "./PerformancesCharts.css";
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from "recharts";
 
 import { getUserPerformanceData } from "../../services/userService";
+import { UserPerformance } from "../../models/userPerformance";
 
+/**
+ * Component RadarChart
+ * @param {number} userId the Id of the user
+ */
 function PerformancesCharts({ userId }) {
   const [performance, setPerformance] = useState(null);
   const [isError, setIsError] = useState(false);
   useEffect(() => {
     if (userId !== undefined) {
       getUserPerformanceData(userId).then((userPerformance) => {
-        setIsError(!userPerformance);
-        setPerformance(userPerformance);
+        setIsError(new UserPerformance(!userPerformance));
+        setPerformance(new UserPerformance(userPerformance));
       });
     }
   }, [userId]);

@@ -3,6 +3,14 @@ import PropTypes from "prop-types";
 
 import "./InfoCard.css";
 
+/**
+ * Component use in the dashboard for build a aside section
+ * @param {string} src the source of the image
+ * @param {string} title the alt of the image
+ * @param {string} data the data used for get value of user energy profile
+ * @param {string} type the text for card
+ */
+
 function InfoCard({ src, title, data, type }) {
   return (
     <div className="infoCard__container">

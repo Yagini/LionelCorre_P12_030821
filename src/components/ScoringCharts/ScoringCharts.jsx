@@ -7,14 +7,20 @@ import { Cell, Pie, PieChart, ResponsiveContainer } from "recharts";
 
 import { getUserMainData } from "../../services/userService";
 
+import { UserInformation } from "../../models/userInformation"
+
+/**
+ * Component PieChart
+ * @param {number} userId the Id of the user
+ */
 function ScoringCharts({ userId }) {
   const [score, setScore] = useState([]);
   const [isError, setIsError] = useState(false);
   useEffect(() => {
     if (userId !== undefined) {
-      getUserMainData(userId).then((userScore) => {
-        setIsError(!userScore);
-        setScore(userScore);
+      getUserMainData(userId).then((userInformation) => {
+        setIsError(new UserInformation(!userInformation));        
+        setScore(new UserInformation(userInformation));
       });
     }
   }, [userId]);

@@ -1,6 +1,7 @@
 .average-sessions-charts {
     background-color: #ff0000;
     border-radius: 5px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
     height: 188px;
     position: relative;
     width: 185px;

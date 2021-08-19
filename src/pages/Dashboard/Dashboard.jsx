@@ -15,6 +15,10 @@ import ProteinIcon from "../../assets/dashboard-icons/protein-icon.svg";
 
 import { getUserMainData } from "../../services/userService";
 
+/**
+ * Main page Dashboard
+ * @param {Object} props look for match between path and URL
+ */
 function Dashboard(props) {
   const getId = props.match.params.id;
   const parseId = parseInt(getId, 10);
