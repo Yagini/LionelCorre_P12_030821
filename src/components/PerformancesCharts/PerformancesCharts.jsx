@@ -61,8 +61,8 @@ function PerformancesCharts({ userId }) {
       {performance ? (
         <>
           <ResponsiveContainer width="100%" height="100%">
-            <RadarChart outerRadius="68%" data={performance.data}>
-              <PolarGrid radialLines={false} outerRadius="60%" />
+            <RadarChart outerRadius={window.innerWidth < 1025 ? "50%" : "68%"} data={performance.data}>
+              <PolarGrid radialLines={false} />
               <PolarAngleAxis
                 dataKey={changeValueOfRadar}
                 dy={2}
@@ -70,7 +70,7 @@ function PerformancesCharts({ userId }) {
                 tickLine={false}
                 tick={{ fontSize: 10 }}
               />
-              <Radar dataKey="value" stroke="transparent" fill="#FF0101" fillOpacity="0.7" />
+              <Radar dataKey="value" fill="#FF0101" fillOpacity="0.7" />
             </RadarChart>
           </ResponsiveContainer>
         </>
